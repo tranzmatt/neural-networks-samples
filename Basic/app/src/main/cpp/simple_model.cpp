@@ -37,8 +37,8 @@ ANeuralNetworksMemory* createMemoryFromAsset(AAsset* asset) {
     off_t length = AAsset_getLength(asset);
     int fd = ASharedMemory_create("model_data", length);
     if (fd < 0) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "ASharedMemory_create failed with size %d",
-                            length);
+        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG,
+                            "ASharedMemory_create failed with size %ld",length);
         return nullptr;
     }
 
